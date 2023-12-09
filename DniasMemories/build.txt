@@ -1,0 +1,3 @@
+displayName = Dnias' Memories
+author = Dnias
+version = 0.1

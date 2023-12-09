@@ -1,0 +1,53 @@
+# This file will automatically update with entries for new content after a build and reload
+
+Items: {
+	delete: {
+		DisplayName: delete
+		Tooltip: somthing im supposed to delete
+	}
+
+	xchangeha: {
+		DisplayName: xchange HA
+		Tooltip: Exchange 50% Health for 2x Attack
+	}
+
+	xchangehaex: {
+		DisplayName: xchange HA+
+		Tooltip: Exchange 75% Health for 300% Attack
+	}
+
+	skillpoint: {
+		DisplayName: Skill point
+		Tooltip: A item used to craft because I was lazy
+	}
+
+	xchangehr: {
+		DisplayName: xchange HR
+		Tooltip: "Exchange 50% Health for +20 HP "
+	}
+
+	xchangemh: {
+		DisplayName: xchange MH
+		Tooltip: Exchange 50% Mana for +25% Health
+	}
+
+	xchangema: {
+		DisplayName: xchange MA
+		Tooltip: Exchange 100% Mana for 100% Attack
+	}
+
+	watergem: {
+		DisplayName: Water Gem
+		Tooltip: Increases water mobility and buffs Mana
+	}
+
+	firegem: {
+		DisplayName: Fire Gem
+		Tooltip: Gives imunities to lava and fire and Minor Increase to strengh
+	}
+
+	forestgem: {
+		DisplayName: Forest Gem
+		Tooltip: Minor improvements to all stats
+	}
+}
