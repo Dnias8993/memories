@@ -1,39 +1,50 @@
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.GameContent.Creative;
 
-namespace DniasMemories.Items.Accessories
+namespace DniasMemories.Items.Accessories.Passive
 {
-    public class xchangemh : ModItem
+    public class battleheal : ModItem
     {
         public override void SetStaticDefaults()
         {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
         
-        
+        public int Timmer = 0;
+
         public override void SetDefaults()
         {
-            Item.width = 40;
-            Item.height = 40;
+            Item.width = 32;
+            Item.height = 32;
             Item.value = 1000;
             Item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.statManaMax2 -= player.statManaMax2/2;
-            player.statLifeMax2 += player.statLifeMax2/4;
+            Timmer++;
+            if(Timmer > 180)
+            {
+                player.HealEffect(10);
+                player.statLife += 10;
+                Timmer = 0;
+
+            }   
+
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient<Items.skillpoint>(5);
-            recipe.AddTile(TileID.CrystalBall);
-            recipe.Register();
+            recipe.AddIngredient(ItemID.HeartStatue, 1);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.Register();   
         }
+        
+
 
     }
 }

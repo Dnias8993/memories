@@ -31,7 +31,7 @@ namespace DniasMemories.Items.Accessories
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient<Items.skillpoint>(10);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddTile(TileID.CrystalBall);
             recipe.Register();
         }
 

@@ -3,9 +3,9 @@ using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace DniasMemories.Items.Accessories
+namespace DniasMemories.Items.Accessories.Zelda
 {
-    public class xchangemh : ModItem
+    public class watergem : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -23,15 +23,21 @@ namespace DniasMemories.Items.Accessories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.statManaMax2 -= player.statManaMax2/2;
-            player.statLifeMax2 += player.statLifeMax2/4;
+            player.ignoreWater = true;
+            player.accFlipper = true;
+            player.breathMax = 400;
+            player.statManaMax2 += 60;
+            player.manaRegen += 5;
+            player.GetDamage(DamageClass.Magic) += 0.1f;
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient<Items.skillpoint>(5);
-            recipe.AddTile(TileID.CrystalBall);
+            recipe.AddIngredient(ItemID.Sapphire, 15);
+            recipe.AddIngredient(ItemID.GoldBar, 5);
+            recipe.AddIngredient(ItemID.FallenStar, 15);
+            recipe.AddTile(TileID.Hellforge);
             recipe.Register();
         }
 

@@ -3,9 +3,9 @@ using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace DniasMemories.Items.Accessories
+namespace DniasMemories.Items.Accessories.Zelda
 {
-    public class xchangemh : ModItem
+    public class greentriangle : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -23,15 +23,24 @@ namespace DniasMemories.Items.Accessories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.statManaMax2 -= player.statManaMax2/2;
-            player.statLifeMax2 += player.statLifeMax2/4;
+            player.GetDamage(DamageClass.Generic) += 0.2f;
+            player.lifeRegen += 8;
+            player.manaRegen += 8;
+            player.pickSpeed -= 0.3f;
+            player.statDefense += 10;
+            player.GetCritChance(DamageClass.Generic) += 10;
+            player.GetAttackSpeed(DamageClass.Generic) += 0.3f;
+            player.moveSpeed += 0.2f;
+            player.noKnockback = true;
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient<Items.skillpoint>(5);
-            recipe.AddTile(TileID.CrystalBall);
+            recipe.AddIngredient<Items.Accessories.Zelda.forestgem>(1);
+            recipe.AddIngredient(ItemID.SoulofFright, 50);
+            recipe.AddIngredient(ItemID.LifeFruit, 5);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }
 

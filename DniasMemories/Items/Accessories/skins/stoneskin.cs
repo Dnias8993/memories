@@ -1,11 +1,11 @@
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.GameContent.Creative;
 
-namespace DniasMemories.Items.Accessories
+namespace DniasMemories.Items.Accessories.skins
 {
-    public class xchangemh : ModItem
+    public class stoneskin : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -23,15 +23,16 @@ namespace DniasMemories.Items.Accessories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.statManaMax2 -= player.statManaMax2/2;
-            player.statLifeMax2 += player.statLifeMax2/4;
+            player.statDefense += 5;
+            
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient<Items.skillpoint>(5);
-            recipe.AddTile(TileID.CrystalBall);
+            recipe.AddIngredient(ItemID.StoneBlock, 200);
+            recipe.AddIngredient(ItemID.Silk, 2);
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
 

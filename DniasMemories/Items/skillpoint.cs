@@ -26,8 +26,8 @@ namespace DniasMemories.Items
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.FallenStar, 15);
-            recipe.AddTile(TileID.Hellforge);
+            recipe.AddIngredient(ItemID.FallenStar, 30);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }
 

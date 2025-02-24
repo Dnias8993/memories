@@ -1,11 +1,11 @@
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.GameContent.Creative;
 
-namespace DniasMemories.Items.Accessories
+namespace DniasMemories.Items.Accessories.skins
 {
-    public class xchangemh : ModItem
+    public class woodskin : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -23,15 +23,21 @@ namespace DniasMemories.Items.Accessories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.statManaMax2 -= player.statManaMax2/2;
-            player.statLifeMax2 += player.statLifeMax2/4;
+            player.statDefense += 8;
+            player.endurance += 0.05f;
+            player.thorns = 1f;
+            player.lifeRegen += 1;
+
+            
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient<Items.skillpoint>(5);
-            recipe.AddTile(TileID.CrystalBall);
+            recipe.AddIngredient(ItemID.Wood, 100);
+            recipe.AddIngredient<Items.Accessories.skins.stoneskin>(1);
+            recipe.AddIngredient(ItemID.LivingWoodWand, 1);
+            recipe.AddTile(TileID.Anvils);
             recipe.Register();
         }
 

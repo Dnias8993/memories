@@ -5,14 +5,13 @@ using Terraria.ModLoader;
 
 namespace DniasMemories.Items.Accessories
 {
-    public class xchangemh : ModItem
+    public class curruptedstar : ModItem
     {
         public override void SetStaticDefaults()
         {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
-        
-        
+
         public override void SetDefaults()
         {
             Item.width = 40;
@@ -23,15 +22,17 @@ namespace DniasMemories.Items.Accessories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.statManaMax2 -= player.statManaMax2/2;
-            player.statLifeMax2 += player.statLifeMax2/4;
+            player.thorns += 1000f;
+            player.immuneTime -= 60;
+            player.endurance -= 0.3f;
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient<Items.skillpoint>(5);
-            recipe.AddTile(TileID.CrystalBall);
+            recipe.AddIngredient(ItemID.LunarBar, 20);
+            recipe.AddIngredient(ItemID.FallenStar, 50);
+            recipe.AddTile(TileID.Hellforge);
             recipe.Register();
         }
 

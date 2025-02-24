@@ -1,18 +1,17 @@
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.GameContent.Creative;
 
 namespace DniasMemories.Items.Accessories
 {
-    public class xchangemh : ModItem
+    public class teleportcore : ModItem
     {
         public override void SetStaticDefaults()
         {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
-        
-        
+
         public override void SetDefaults()
         {
             Item.width = 40;
@@ -23,16 +22,17 @@ namespace DniasMemories.Items.Accessories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.statManaMax2 -= player.statManaMax2/2;
-            player.statLifeMax2 += player.statLifeMax2/4;
-        }
+            if(player.altFunctionUse == 2)
+            {
+                player.Teleport(Main.MouseWorld, 1);
+                player.AddBuff(BuffID.ShadowDodge, 1);
+            }
 
-        public override void AddRecipes()
+            
+        }
+        public override bool AltFunctionUse(Player player)
         {
-            Recipe recipe = CreateRecipe();
-            recipe.AddIngredient<Items.skillpoint>(5);
-            recipe.AddTile(TileID.CrystalBall);
-            recipe.Register();
+            return true;
         }
 
     }

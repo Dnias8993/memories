@@ -1,11 +1,11 @@
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.GameContent.Creative;
 
 namespace DniasMemories.Items.Accessories
 {
-    public class xchangemh : ModItem
+    public class metalup : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -23,15 +23,25 @@ namespace DniasMemories.Items.Accessories
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.statManaMax2 -= player.statManaMax2/2;
-            player.statLifeMax2 += player.statLifeMax2/4;
+            player.statDefense += 20;
+            player.GetDamage(DamageClass.Generic) += 0.2f;
+            player.moveSpeed -= 0.5f;
+            player.ignoreWater = true;
+            player.endurance += 0.2f;
+            player.GetAttackSpeed(DamageClass.Generic) -= 0.3f;
+            player.maxFallSpeed += 50f;
+            if (player.wet)
+            {
+                player.gills = true;
+            }
         }
 
         public override void AddRecipes()
         {
             Recipe recipe = CreateRecipe();
-            recipe.AddIngredient<Items.skillpoint>(5);
-            recipe.AddTile(TileID.CrystalBall);
+            recipe.AddIngredient(ItemID.IronBar, 50);
+            recipe.AddIngredient(ItemID.ArmorPolish, 1);
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.Register();
         }
 

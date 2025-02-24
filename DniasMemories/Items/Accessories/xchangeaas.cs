@@ -2,10 +2,11 @@ using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
 
 namespace DniasMemories.Items.Accessories
 {
-    public class xchangemh : ModItem
+    public class xchangeaas : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -15,16 +16,18 @@ namespace DniasMemories.Items.Accessories
         
         public override void SetDefaults()
         {
+            Item.accessory = true;
             Item.width = 40;
             Item.height = 40;
-            Item.value = 1000;
-            Item.accessory = true;
+            Item.value = 5000;
+            
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.statManaMax2 -= player.statManaMax2/2;
-            player.statLifeMax2 += player.statLifeMax2/4;
+            
+            player.GetAttackSpeed(DamageClass.Generic) += 0.5f;
+            player.GetDamage(DamageClass.Generic) -= 0.5f;
         }
 
         public override void AddRecipes()
@@ -34,6 +37,5 @@ namespace DniasMemories.Items.Accessories
             recipe.AddTile(TileID.CrystalBall);
             recipe.Register();
         }
-
     }
 }
